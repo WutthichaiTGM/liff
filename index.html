@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   <title>My LIFF app</title>
   <link rel="stylesheet" href="css/style.css" media="all">
 </head>
+
 <body>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
@@ -73,11 +75,11 @@
 
     async function getUserProfile() {
       const profile = await liff.getProfile();
-    document.getElementById('pictureUrl').src = profile.pictureUrl;
-    document.getElementById('userId').append(profile.userId);
-    document.getElementById('statusMessage').append(profile.statusMessage);
-    document.getElementById('displayName').append(profile.displayName);
-    document.getElementById('email').append(liff.getDecodedIDToken().email);
+      document.getElementById('pictureUrl').src = profile.pictureUrl;
+      document.getElementById('userId').append(profile.userId);
+      document.getElementById('statusMessage').append(profile.statusMessage);
+      document.getElementById('displayName').append(profile.displayName);
+      document.getElementById('email').append(liff.getDecodedIDToken().email);
     }
 
     function getEnvironment() {
@@ -85,7 +87,12 @@
 
     async function main() {
       // alert("LINE Developers x Skooldio")
-      await liff.init({ liffId: "1654472250-V0dbAraD" })
+      await liff.init({ liffId: "1654472250-rDLjaDAQ" })
+      if (liff.isLoggedIn()) {
+        getUserProfile();
+      } else {
+        liff.login();
+      }
       // getEnvironment()
       // getUserProfile()
       // getContext()
@@ -95,4 +102,5 @@
     main()
   </script>
 </body>
+
 </html>
