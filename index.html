@@ -89,7 +89,7 @@
       // alert("LINE Developers x Skooldio")
       await liff.init({ liffId: "1654472250-rDLjaDAQ" })
       if (liff.isLoggedIn()) {
-        getUserProfile();
+        this.getUserProfile();
       } else {
         liff.login();
       }
