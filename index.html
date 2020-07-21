@@ -97,12 +97,12 @@
     async function main() {
       await liff.init({ liffId: "1654444182-O7lMmPn5" })
       liff.ready.then(() => {
-      if (liff.isLoggedIn()) {
-        getEnvironment()
-      } else {
-        liff.login();
-      }
-    });
+        if (liff.isLoggedIn()) {
+          getEnvironment()
+        } else {
+          liff.login();
+        }
+      });
       
       // getUserProfile()
       // getContext()
